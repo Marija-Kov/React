@@ -1,0 +1,20 @@
+
+nav {
+    display: flex;
+    justify-content: space-around;
+}
+
+.react-logo{
+  height: 40px;
+ }
+
+.nav-items {
+    display:flex;
+    list-style: none;
+    gap: 1em;
+}
+.copyright {
+    color: white;
+    background: gray;
+    line-height: 150%;
+}
