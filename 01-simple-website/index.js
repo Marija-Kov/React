@@ -2,23 +2,9 @@
 // import React from 'react'  -- that's where JSX syntax lives
 //import ReactDOM from "react-dom"
 
+import Header from "./Header"
+
 const root = document.querySelector('#root');
-
-
-function Header() {
-    return(
-    <header>
-        <nav>
-            <img className="react-logo" src="./react-logo-clipart.png" />
-            <ul className="nav-items">
-                <li>Pricing</li>
-                <li>About</li>
-                <li>Contact</li>
-            </ul>
-        </nav>
-     </header>  
-    )
-}
 
 function MainContent() {
     return (

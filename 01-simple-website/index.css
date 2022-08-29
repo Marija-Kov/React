@@ -1,7 +1,22 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family:sans-serif;
+}
+
+h1, p, small, ul, img {
+    padding: 5%;
+}
+
+ul:not(.nav-items){
+margin-left: 20px;
+line-height: 24px;
+}
 
 nav {
     display: flex;
     justify-content: space-around;
+    background: rgb(213, 240, 234);
 }
 
 .react-logo{
@@ -12,9 +27,14 @@ nav {
     display:flex;
     list-style: none;
     gap: 1em;
+    font-size: 0.9em;
+    padding-top: 28px;
 }
+
 .copyright {
     color: white;
+    font-size: 0.9em;
     background: gray;
-    line-height: 150%;
+    line-height: 2em;
+    margin-top: 2em;
 }

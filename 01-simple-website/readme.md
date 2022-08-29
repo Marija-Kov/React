@@ -1,3 +1,9 @@
+### NOTE: 
+At the point where I tried to move the components in separate .js files, I ran into an issue when trying to import the said components to index.js ('require not defined...in babel.min.js') which made me believe that I've reached the limits of the CDN setup. Upon realizing that trying to solve this problem at this point would only serve to maximize my frustration and distract me from the purpose of doing the actual React course, I decided to restart the app with create-react-app in the simple-website subdirectory.
+
+...
+
+
 An easy setup for React project is done by copy-pasting these in the head of our html:
 
  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
@@ -5,6 +11,7 @@ An easy setup for React project is done by copy-pasting these in the head of our
  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script> 
 
 https://reactjs.org/docs/cdn-links.html
+ 
 
 So, why React over html+css+vanilla JS?
 
