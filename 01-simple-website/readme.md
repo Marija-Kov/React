@@ -1,6 +1,13 @@
 ### NOTE: 
 At the point where I tried to move the components in separate .js files, I ran into an issue when trying to import the said components to index.js ('require not defined...in babel.min.js') which made me believe that I've reached the limits of the CDN setup. Upon realizing that trying to solve this problem at this point would only serve to maximize my frustration and distract me from the purpose of doing the actual React course, I decided to restart the app with create-react-app in the simple-website subdirectory.
 
+#### src and public 
+
+- All JSX, style and assets should be in the src folder.
+- App.js contains all other components and is rendered in index.js.
+
+
+
 ...
 
 
@@ -10,10 +17,10 @@ An easy setup for React project is done by copy-pasting these in the head of our
  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script> 
 
-https://reactjs.org/docs/cdn-links.html
+Source: https://reactjs.org/docs/cdn-links.html
  
 
-So, why React over html+css+vanilla JS?
+So, why React over html + vanilla JS?
 
 ### 1. It's composable 
 It allows us to create what are called components that can be reused in a more simple and clean fashion than copy-pasting the code. Copy-pasting static code is easy enough, but gets big and cluttered really fast.
@@ -32,3 +39,4 @@ As opposed to imperative programming where you're expected to write detailed ins
 Combines html and JS syntax that allows us to code in a declarative manner.
 It's kind of like a function that returns an object (element). 
 It's imported as React from "react", this is necessary if we're not using CDNs, and we won't be using them much.
+
