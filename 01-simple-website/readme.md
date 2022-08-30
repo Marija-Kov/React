@@ -40,3 +40,4 @@ Combines html and JS syntax that allows us to code in a declarative manner.
 It's kind of like a function that returns an object (element). 
 It's imported as React from "react", this is necessary if we're not using CDNs, and we won't be using them much.
 
+

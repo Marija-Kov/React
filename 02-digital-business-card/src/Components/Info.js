@@ -12,8 +12,8 @@ export default function Info() {
         <h2>Frontend Developer</h2>
         <small>office@keech.org</small>
         <div className="button-group">
-          <button className="email"><img src={Email} alt="Email icon" width="12px"/>Email</button>
-          <button className="linkedin"><img src={LinkedIn} alt="LinkedIn logo" width="12px"/>LinkedIn</button>
+          <button className="email"><img src={Email} alt="Email icon" />Email</button>
+          <button className="linkedin"><img src={LinkedIn} alt="LinkedIn logo" />LinkedIn</button>
         </div>
        </div>
         </>
