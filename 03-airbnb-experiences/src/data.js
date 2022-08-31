@@ -27,7 +27,7 @@ const data =[
         openSpots: 27,
     },
         {
-        id: 1,
+        id: 3,
         title: "Group Mountain Biking",
         description: " ",
         price: 50,
