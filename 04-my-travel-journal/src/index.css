@@ -1,0 +1,107 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  font-family: 'Rubik',
+  sans-serif;
+}
+
+.container {
+  width: 100vw;
+}
+
+nav {
+  display: flex;
+  height: 94px;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(90deg, #FF3C3C -16.37%, #FFA8A8 106.2%);
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  margin: 1px;
+}
+
+.logo {
+ width: 229px;
+}
+
+.curvy-line {
+  position: absolute;
+  width: 100%;
+}
+
+.destinations {
+  display: flex;
+  flex-direction: column;
+  margin: 70px;
+}
+
+.card {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+  height: 338px;
+  padding: 27px;
+  max-width: 700px;
+  border-bottom: solid 1px rgb(240, 240, 240);
+}
+
+.img-wrapper {
+  width: 197px;
+}
+
+.img-wrapper>img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* .text-wrapper {
+
+} */
+
+.location-maps {
+  display: flex;
+  gap: 1.5em;
+  margin-bottom: 1em;
+}
+
+.country:nth-child(1) {
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-weight:200;
+}
+
+a {
+  color: rgb(148, 148, 148);
+  text-decoration: underline;
+  letter-spacing: 0.03em;
+  font-size: 14px;
+  font-weight:200;
+  cursor: pointer;
+  padding-top: 6px;
+}
+a:hover {
+  color: #ff6767;
+}
+
+.place {
+  font-size: 40px;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  margin-bottom: 0.5em;
+}
+
+.date {
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  margin-bottom: 0.7em;
+}
+
+.description {
+  font-size: 14px;
+  letter-spacing: 0.03em;
+  font-weight: 100;
+  max-width: 500px;
+}
