@@ -25,6 +25,18 @@ setGreet('Hi');
 
 console.log(greet) --> 'Hi'
 
-#### Array destructuring vs object destructuring
+##### Array destructuring vs object destructuring
 When destructuring an object, we have to use the exact property names. 
 When destructuring arrays, we can use any names we want.
+
+
+#### Changing state
+
+- Use a callback function
+
+- A state managed by one component can be passed as a prop to another component.
+
+##### Parent component can pass the state it manages as a prop to a child 
+by giving a prop to the instance of a child (ex. parentState) with the value of (parent's) state reference (ex. {object.property}). The child component can then access the state via props.parentState.
+##### Parent component can let a child component manage its state
+ by simply passing the function as the value of a child's prop (ex. handleEventProp) where the instance of the child component is created; the child component will have an actual event listener (ex. onClick) with the value of {props.handleEventProp} set up on one of its elements.
