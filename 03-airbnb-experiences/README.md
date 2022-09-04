@@ -26,7 +26,7 @@ So if we try to pass a custom prop to a native DOM element - something like <div
 We can use map() method to create multiple instances of a Component by simply referencing the data we want to display as our props' values - we're converting an array of raw data into an array of JSX elements that React will turn into DOM elements that will be displayed on the page.
 
 Component.js----
-export default function Component({prop1, prop2}){
+export default function Component(props){
     return {
         <>
        <p>{prop1}</p> <p>{prop2}</p>
@@ -73,7 +73,12 @@ The Component props will have to have exactly the same names as data obj propert
 
 We won't be able to use destructured props and will have to use the dot notation as if we're getting nested values out of any object. Since in this case we're mapping {...obj}  (also typed as: obj={obj}) into the instance of the Component as props, as a result we can get any obj property using dot notation on props. Additionally, obj is not defined in Component.js so it should be clear that we need to use props to get to the individual prop values. 
 
-<p>{props.title}</p> (props.title === obj.title)
+function Component(props){
+  return(
+    <p>{props.title}</p> (props.title === obj.title)
+  )
+}
+
 
 
 
