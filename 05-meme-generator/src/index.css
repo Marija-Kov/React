@@ -93,14 +93,16 @@ button {
   position: relative;
 }
 .meme-text {
-  position: relative;
+  position: absolute;
   height: 280px;
-  width: 100%;
+  width: 39vw;
   display: flex;
   flex-direction: column;
   justify-content:space-between;
+  margin-top: -280px;
   align-items: center;
-  background: rgba(255, 192, 203, 0.363);
+  padding: 20px;
+  background: rgba(215, 172, 255, 0.185);
 }
 .top-text,
 .bottom-text {
