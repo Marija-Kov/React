@@ -14,9 +14,10 @@ const toggle = (id) => {
 const showBoxes = boxy.map(e => {
   return (
     <Box key={e.id}
-         id={e.id}
-         on={e.on} 
-         toggle={toggle}
+        //  id={e.id} 
+        //  toggle={toggle}
+        toggle={()=>toggle(e.id)}
+        on={e.on}
          />
   )
 })
