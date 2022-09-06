@@ -40,3 +40,13 @@ When destructuring arrays, we can use any names we want.
 by giving a prop to the instance of a child (ex. parentState) with the value of (parent's) state reference (ex. {object.property}). The child component can then access the state via props.parentState.
 ##### Parent component can let a child component manage its state
  by simply passing the function as the value of a child's prop (ex. handleEventProp) where the instance of the child component is created; the child component will have an actual event listener (ex. onClick) with the value of {props.handleEventProp} set up on one of its elements.
+
+#### Derived vs unified state
+
+- Each child component can manage its own state using the props that have been passed to its instance within the parent component, with parent's state as the value.
+But since the parent component already can manage its own state, passing it to the children creates another source of truth, which is unnecessary and not ideal.
+
+- A parent can pass a function** that lives within the parent to its child as a prop. Then, the child can run that function through the event listener attached to the child.
+- ** - If the function takes in an argument that is a part of the parent's state, the child has to be granted access to the argument. This is also done by passing the argument to the child as a prop.
+
+- ** - The function asking for an argument within the child component that it has been passed to needs to be wrapped in a callback before being passed to the event listener.
