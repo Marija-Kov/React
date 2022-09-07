@@ -44,9 +44,18 @@ by giving a prop to the instance of a child (ex. parentState) with the value of 
 #### Derived vs unified state
 
 - Each child component can manage its own state using the props that have been passed to its instance within the parent component, with parent's state as the value.
-But since the parent component already can manage its own state, passing it to the children creates another source of truth, which is unnecessary and not ideal.
+But since the parent component already can manage its own state, passing it to the children creates another "source of truth", which is unnecessary and not ideal.
 
 - A parent can pass a function** that lives within the parent to its child as a prop. Then, the child can run that function through the event listener attached to the child.
 - ** - If the function takes in an argument that is a part of the parent's state, the child has to be granted access to the argument. This is also done by passing the argument to the child as a prop.
 
 - ** - The function asking for an argument within the child component that it has been passed to needs to be wrapped in a callback before being passed to the event listener.
+
+
+### React forms
+
+#### Controlled Components
+
+A good practice is to have React control the input, which, in html, controls its own state. This is accomplished by defining the input value attribute with the state as the value.
+
+ value={state.propName}
