@@ -1,7 +1,7 @@
 import memesData from "../memesData"
 import React from 'react'
 
-export default function Form(){
+export default function memeForm(){
 
     const [meme, setMeme] = React.useState({
         topText:"...",
