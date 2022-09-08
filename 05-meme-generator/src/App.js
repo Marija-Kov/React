@@ -1,7 +1,7 @@
 
 import Header from './components/Header'
-//import memeForm from './components/memeForm'
-import Form from './components/Output'
+import MemeForm from './components/MemeForm'
+//import Form from './components/Output'
 import './App.css';
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
   return (
     <div className="container">
      <Header />
-     <Form />
+     <MemeForm />
     </div>
   );
 }
