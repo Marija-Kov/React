@@ -2,56 +2,79 @@ import React from "react"
 // import boxes from '../boxes';
 // import Box from './Box'
 
-export default function Form(){
+export default function Starwars(){
+  const [swData, setSwData] = React.useState({})
+  const [count, setCount] = React.useState(0);
 
-  const[state, setState] = React.useState({
-    email:"", password:"", confirmPassword:"", join: false
-  })
+  console.log("Component rendered")
+  
+  React.useEffect(()=> {
+    console.log("Effect ran")
+    // fetch("https://swapi.dev/api/people/1")
+    // .then(res => res.json())
+    // .then(data => setSwData(data))
+  },[count])
 
-
-const handleChange = (event) => {
-  const {name, value, checked, type} = event.target;
-  setState(prev => {
-    return {
-      ...prev,
-      [name]: type === "checkbox" ? checked : value
-    }
-  })
+  return (
+    <div>
+      <h1>The count is {count}</h1>
+      <br />
+      <button onClick={()=>setCount(prev => prev+1)}>Add</button>
+      <pre>{JSON.stringify(swData, null, 2)}</pre>
+    </div>
+  )
 }
 
-const handleSubmit = (event) => {
-  event.preventDefault()
-  if(state.password === state.confirmPassword){
-    console.log('Successfully signed up');
-  }else{
-    console.log('Passwords do not match');
-  }
+// export default function Form(){
 
-  if(state.join){
-    console.log('Thanks for signing up for our newsletter')
-  }
+//   const[state, setState] = React.useState({
+//     email:"", password:"", confirmPassword:"", join: false
+//   })
+
+
+// const handleChange = (event) => {
+//   const {name, value, checked, type} = event.target;
+//   setState(prev => {
+//     return {
+//       ...prev,
+//       [name]: type === "checkbox" ? checked : value
+//     }
+//   })
+// }
+
+// const handleSubmit = (event) => {
+//   event.preventDefault()
+//   if(state.password === state.confirmPassword){
+//     console.log('Successfully signed up');
+//   }else{
+//     console.log('Passwords do not match');
+//   }
+
+//   if(state.join){
+//     console.log('Thanks for signing up for our newsletter')
+//   }
     
-} 
+// } 
 
 
-return (
+// return (
 
-<form onSubmit={handleSubmit}>
-<input type="email" placeholder="Email" name="email" onChange={handleChange} value={state.email} />
-<br />
-<input type="password" placeholder="password" name="password" onChange={handleChange} value={state.password} />
-<br />
-<input type="password" placeholder="confirm password" name="confirmPassword" onChange={handleChange} value={state.confirmPassword} />
-<br />
-<label htmlFor="join">I want to join the newsletter</label>
-<input type="checkbox" id="join" name="join" onChange={handleChange} checked={state.join} />
-<br />
-<button>Sign up</button>
-  </form>
+// <form onSubmit={handleSubmit}>
+// <input type="email" placeholder="Email" name="email" onChange={handleChange} value={state.email} />
+// <br />
+// <input type="password" placeholder="password" name="password" onChange={handleChange} value={state.password} />
+// <br />
+// <input type="password" placeholder="confirm password" name="confirmPassword" onChange={handleChange} value={state.confirmPassword} />
+// <br />
+// <label htmlFor="join">I want to join the newsletter</label>
+// <input type="checkbox" id="join" name="join" onChange={handleChange} checked={state.join} />
+// <br />
+// <button>Sign up</button>
+//   </form>
 
-    )
+//     )
     
-}
+// }
 // export default function Form(){
 //   const[state, setState] = React.useState(
 //     {firstName:"", lastName:"", email:"", comments:"", isFriendly: true, status: "", favColour:""}

@@ -2,6 +2,7 @@
 import Header from './components/Header'
 import MemeForm from './components/MemeForm'
 //import Form from './components/Output'
+import Starwars from './components/Output'
 import './App.css';
 
 function App() {
@@ -9,7 +10,7 @@ function App() {
   return (
     <div className="container">
      <Header />
-     <MemeForm />
+     <Starwars />
     </div>
   );
 }
