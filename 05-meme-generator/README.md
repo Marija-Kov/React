@@ -59,3 +59,14 @@ But since the parent component already can manage its own state, passing it to t
 A good practice is to have React control the input, which, in html, controls its own state. This is accomplished by defining the input value attribute with the state as the value.
 
  value={state.propName}
+
+
+ ### useEffect()
+
+ Some API, like fetch, cause React app to render infinitely. This is a side-effect. Fetch method is considered a side-effect because it originates outside the React app. 
+
+ Anything that React is not in charge of - local storage, API, websockets - is a side-effect. Additionally, two states to keep in sync counts as a side-effect as well.
+
+ A side-effect is prevented by passing it to the React.useEffect() as an argument wrapped in a callback, and passing a dependencies array as the second argument.
+ The dependencies determine when the render will run - if the value changes (compared to some default state), the app re-renders.
+ Passing an empty array will let the effect run only once after the first render.
