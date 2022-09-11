@@ -4,15 +4,15 @@ import React from "react"
 
 export default function Starwars(){
   const [swData, setSwData] = React.useState({})
-  const [count, setCount] = React.useState(0);
+  const [count, setCount] = React.useState(1);
 
   console.log("Component rendered")
   
   React.useEffect(()=> {
     console.log("Effect ran")
-    // fetch("https://swapi.dev/api/people/1")
-    // .then(res => res.json())
-    // .then(data => setSwData(data))
+    fetch(`https://swapi.dev/api/people/${count}`)
+    .then(res => res.json())
+    .then(data => setSwData(data))
   },[count])
 
   return (
