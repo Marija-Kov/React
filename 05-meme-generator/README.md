@@ -63,6 +63,8 @@ A good practice is to have React control the input, which, in html, controls its
 
  ### useEffect()
 
+ useEffect() lets a component interact with an outside system while keeping its local state in sync with it.
+
  Some API, like fetch, cause React app to render infinitely. This is a side-effect. Fetch method is considered a side-effect because it originates outside the React app. 
 
  Anything that React is not in charge of - local storage, API, websockets - is a side-effect. Additionally, two states to keep in sync counts as a side-effect as well.
@@ -70,3 +72,7 @@ A good practice is to have React control the input, which, in html, controls its
  A side-effect is prevented by passing it to the React.useEffect() as an argument wrapped in a callback, and passing a dependencies array as the second argument.
  The dependencies determine when the render will run - if the value changes (compared to some default state), the app re-renders.
  Passing an empty array will let the effect run only once after the first render.
+
+ #### Fixing memory leak
+
+When a component is unmounted from the DOM, an event listener that's attached to the window - browser's element - through the component may still listen for events. This is called memory leak and is fixed with useEffect cleanup function, which is a function returned by the callback (that is the first argument) inside useEffect parentheses. That function removes the event listener from the window element once the component is unmounted from the DOM.
