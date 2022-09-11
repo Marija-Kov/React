@@ -1,4 +1,4 @@
-import memesData from "../memesData"
+//import memesData from "../memesData"
 import React from 'react'
 
 export default function MemeForm(){
@@ -9,18 +9,27 @@ export default function MemeForm(){
         memeImage: "https://i.imgflip.com/24y43o.jpg"
     })
 
-    const [allMemeImages, setAllMemeImages] = React.useState(memesData);
+    const [allMemes, setAllMemes] = React.useState([]);
 
-    const getMemeImage = () => {
-       let len = allMemeImages.data.memes.length;
+    React.useEffect(()=>{
+        fetch("https://api.imgflip.com/get_memes")
+        .then(res => res.json())
+        .then(data => setAllMemes(data.data.memes))
+    },[])
+
+    console.log(allMemes)
+    console.log(meme)
+    const getMeme = () => {
+       let len = allMemes.length;
         setMeme(prev => {
             return {
                 ...prev,
-                memeImage: allMemeImages.data.memes[Math.floor(Math.random()*len)].url
+                memeImage: allMemes[Math.floor(Math.random()*len)].url
             }
         })
         document.querySelector('.top-text').innerText ="";
         document.querySelector('.bottom-text').innerText =""
+        
     }
    const handleChange = (event) => {
        const{name, value} = event.target;
@@ -43,7 +52,8 @@ export default function MemeForm(){
             <input type="text" placeholder="top text" name="topText" value={meme.topText} onChange={handleChange}/>
             <input type="text" placeholder="bottom text" name="bottomText" value={meme.bottomText} onChange={handleChange} />
         </form>
-        <button onClick={getMemeImage}>Get a new meme image</button>
+
+        <button onClick={getMeme}>Get a new meme image</button>
         <div className="output">
             <img className="memeImg" src={meme.memeImage} alt="meme" />
           <div className="meme-text">
