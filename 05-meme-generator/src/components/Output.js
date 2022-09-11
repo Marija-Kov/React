@@ -2,28 +2,44 @@ import React from "react"
 // import boxes from '../boxes';
 // import Box from './Box'
 
-export default function Starwars(){
-  const [swData, setSwData] = React.useState({})
-  const [count, setCount] = React.useState(1);
-
-  console.log("Component rendered")
-  
+export default function WindowTracker(){
+ const [windowWidth, setWindowWidth] = React.useState(window.innerWidth);
   React.useEffect(()=> {
-    console.log("Effect ran")
-    fetch(`https://swapi.dev/api/people/${count}`)
-    .then(res => res.json())
-    .then(data => setSwData(data))
-  },[count])
-
+    function watchWidth(){
+      setWindowWidth(window.innerWidth)
+    }
+    window.addEventListener('resize', watchWidth)
+    return function (){
+    window.removeEventListener('resize', watchWidth)
+    }
+  },[]);
   return (
-    <div>
-      <h1>The count is {count}</h1>
-      <br />
-      <button onClick={()=>setCount(prev => prev+1)}>Add</button>
-      <pre>{JSON.stringify(swData, null, 2)}</pre>
-    </div>
+    <h1>Width: {windowWidth} </h1>
   )
 }
+
+// export default function Starwars(){
+//   const [swData, setSwData] = React.useState({})
+//   const [count, setCount] = React.useState(1);
+
+//   console.log("Component rendered")
+  
+//   React.useEffect(()=> {
+//     console.log("Effect ran")
+//     fetch(`https://swapi.dev/api/people/${count}`)
+//     .then(res => res.json())
+//     .then(data => setSwData(data))
+//   },[count])
+
+//   return (
+//     <div>
+//       <h1>The count is {count}</h1>
+//       <br />
+//       <button onClick={()=>setCount(prev => prev+1)}>Add</button>
+//       <pre>{JSON.stringify(swData, null, 2)}</pre>
+//     </div>
+//   )
+// }
 
 // export default function Form(){
 
