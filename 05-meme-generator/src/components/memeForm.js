@@ -1,11 +1,10 @@
-//import memesData from "../memesData"
+import InputBox from './InputBox';
 import React from 'react'
 
 export default function MemeForm(){
 
     const [meme, setMeme] = React.useState({
-        topText:"",
-        bottomText:"",
+        box_count: 1,
         memeImage: "https://i.imgflip.com/24y43o.jpg"
     })
 
@@ -21,12 +20,15 @@ export default function MemeForm(){
     console.log(meme)
     const getMeme = () => {
        let len = allMemes.length;
+       let num = Math.floor(Math.random()*len);
         setMeme(prev => {
             return {
                 ...prev,
-                memeImage: allMemes[Math.floor(Math.random()*len)].url
+                box_count: allMemes[num].box_count,
+                memeImage: allMemes[num].url
             }
         })
+
         document.querySelector('.top-text').innerText ="";
         document.querySelector('.bottom-text').innerText =""
         
@@ -45,12 +47,19 @@ export default function MemeForm(){
        event.preventDefault()
    }
 
+   function inputBoxes() {
+       const boxes = [];
+       for(let i=1; i<meme.box_count+1; ++i){
+              boxes.push(<InputBox />)
+       } 
+       return boxes  
+   }
+
 
     return (
         <> 
         <form className="form" onSubmit={handleSubmit}>
-            <input type="text" placeholder="top text" name="topText" value={meme.topText} onChange={handleChange}/>
-            <input type="text" placeholder="bottom text" name="bottomText" value={meme.bottomText} onChange={handleChange} />
+            {inputBoxes()}
         </form>
 
         <button onClick={getMeme}>Get a new meme image</button>
