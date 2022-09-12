@@ -7,10 +7,6 @@ import MemeForm from './components/MemeForm'
 import './App.css';
 
 function App() {
-  const[show, setShow] = React.useState(true)
-  function toggle(){
-    setShow(prev=> !prev)
-  }
   console.log('App component rendered')
   return (
     <div className="container">
