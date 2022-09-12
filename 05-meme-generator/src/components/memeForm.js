@@ -50,7 +50,9 @@ export default function MemeForm(){
    function inputBoxes() {
        const boxes = [];
        for(let i=1; i<meme.box_count+1; ++i){
-              boxes.push(<InputBox />)
+              boxes.push(<InputBox 
+                           num={i}
+                           handleChange={()=>handleChange}/>)
        } 
        return boxes  
    }
