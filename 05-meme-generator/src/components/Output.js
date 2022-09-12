@@ -15,7 +15,7 @@ export default function WindowTracker(){
   },[]);
   return (
     <h1>Width: {windowWidth} </h1>
-  )
+  ) 
 }
 
 // export default function Starwars(){
