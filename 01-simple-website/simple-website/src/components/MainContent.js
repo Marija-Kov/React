@@ -1,6 +1,6 @@
-export default function MainContent() {
+export default function MainContent(props) {
     return (
-        <div>
+        <div className={`main ${props.mode}`}>
          <h1>I want to learn React because..</h1>
         <ul>
             <li>I want to be more competent at the front-end </li>
