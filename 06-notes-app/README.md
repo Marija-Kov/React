@@ -1,4 +1,4 @@
-###### The notes for each previous project from this course are in README.md files in each project directory. These are the notes for Notes app that I followed along on Scrimba.
+###### These are the notes for Notes app that I followed along on Scrimba (React for beginners course: https://scrimba.com/learn/learnreact/notes-app-intro-coea14f76b39cf1bfb7c86de4). I have tried, but was unable to fully replicate the project in this repository due to the issues with react-mde dependency.
 
 
 #### Saving/retrieving data to/from localStorage with React
