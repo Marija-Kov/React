@@ -7,13 +7,62 @@ body {
   display: flex;
   justify-content: center;
   margin-top: 50px;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: bold;
 }
 
 main {
-  height: 80vh;
-  aspect-ratio: 1;
-  outline: solid 40px black;
+  height: 370px;
+  width: 370px;
+  border: solid 40px #0B2434;
   border-radius: 30px;
+  background: #F5F5F5;
+  justify-content: center;
+  box-shadow: 0px 2px 10px 5px rgba(27, 26, 41, 0.35);
 }
 
+.die {
+  height: 35.84px;
+  width: 35.84px;
+  background: white;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.15);
+  border-radius: 3.81277px;
+  color: #2B283A;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
 
+.dice--wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  /* display: grid;
+  grid-template: auto auto / repeat(5, 1fr); */
+  width: 300px;
+  margin: 90px 7%;
+}
+
+.roll--btn {
+ height: 35.84px;
+ width: 92.16px;
+ background: #5035FF;
+ color: white;
+ font-size: 16.384px;
+ line-height: 19px;
+ box-shadow: 0px 3.2px 7.68px rgba(0, 0, 0, 0.18);
+ border-radius: 3.81277px;
+ display: inline-block;
+ margin: 0 auto;
+ display: flex;
+ justify-content: center;
+ padding-top: 8px;
+ position: relative;
+ top: -40px;
+ cursor: pointer;
+}
+
+.held {
+  background: pink;
+}
