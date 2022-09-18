@@ -1,0 +1,2 @@
+This folder contains components that served as exercise for building up to the final version of Meme Generator.
+They are not supposed to be a part of the Meme Generator project and they are kept for reference only.

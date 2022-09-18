@@ -1,5 +1,6 @@
-import InputBox from './InputBox';
 import React from 'react'
+import InputBox from './InputBox';
+
 
 export default function MemeForm(){
 
