@@ -89,34 +89,32 @@ button {
   height:fit-content;
   margin-bottom: 50px;
 }
+
 .memeImg {
   max-width: 477px;
   position: relative;
 }
+
 .meme-text {
-  position: relative;
-  height: 100%;
-  width: 100%;
+  display: inline-block;
+  z-index: 2;
+  position: absolute;
+  top: 500px;
+  left: 40vw;
   display: flex;
   flex-direction: column;
-  justify-content:space-between;
-  margin-top: -220px;
+  gap: 10px;
   align-items: center;
   padding: 20px;
   border: solid black 3px;
 }
-.top-text,
-.bottom-text {
+
+.box {
+  position: relative;
+  background: black;
+  display: inline-block;
+  margin: 0 20px;
   font-family: impact;
   font-size: 32px;
   color: white;
-  
-}
-
-.box {
-  height: 100px;
-  aspect-ratio: 1;
-  border: solid 5px black; 
-  display: inline-block;
-  margin: 0 20px;
 }
