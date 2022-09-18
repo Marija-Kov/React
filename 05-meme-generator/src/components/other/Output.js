@@ -1,5 +1,5 @@
 import React from "react"
-// import boxes from '../boxes';
+// import boxes from '../../boxes';
 // import Box from './Box'
 
 export default function WindowTracker(){
