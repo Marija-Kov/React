@@ -1,5 +1,6 @@
 import React from 'react'
-//import {nanoid} from 'nanoid'
+import {nanoid} from 'nanoid'
+
 import InputBox from './InputBox';
 import OutputBox from './OutputBox'
 
@@ -17,7 +18,7 @@ export default function MemeForm(){
         memeImage: "https://i.imgflip.com/24y43o.jpg"
     })
     // inputTxt state as an object:
-     const [inputTxt, setInputTxt] = React.useState({}); 
+    const [inputTxt, setInputTxt] = React.useState({}); 
     function handleChange(event){
        const {name, value} = event.target;
        setInputTxt(prev=>{
@@ -40,7 +41,6 @@ export default function MemeForm(){
     //           {[name]: value}
     //        ]
     //    })
-    //    console.log(inputTxt[name])
 
     function getMeme() {
        let len = allMemes.length;
@@ -52,6 +52,7 @@ export default function MemeForm(){
                 memeImage: allMemes[num].url
             }
         }) 
+        setInputTxt({})
     }
 
    const handleSubmit = (event) => {
@@ -63,7 +64,9 @@ export default function MemeForm(){
        for(let i=1; i < meme.box_count+1; ++i){
               boxes.push(<InputBox 
                           id={i}
-                          handleChange={handleChange}/>)
+                          handleChange={handleChange}
+                          />
+                          )
                          } 
        return boxes  
    }
@@ -72,12 +75,12 @@ export default function MemeForm(){
        const boxes = [];
        for(let i=1; i < meme.box_count+1; ++i){
               boxes.push( 
-                  <OutputBox 
-                  i={i}
+                  <OutputBox
+                  id={i}
                   inputTxt={inputTxt}
                   />
-                           )
-       } 
+                )
+               } 
        return boxes  
    }
 
