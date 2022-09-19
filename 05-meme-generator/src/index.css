@@ -106,15 +106,19 @@ button {
   gap: 10px;
   align-items: center;
   padding: 20px;
-  border: solid black 3px;
 }
 
 .box {
   position: relative;
   background: black;
+  padding: 0 5px;
   display: inline-block;
   margin: 0 20px;
   font-family: impact;
   font-size: 32px;
   color: white;
+  cursor: grab;
+}
+.box:active{
+  cursor: grabbing;
 }
