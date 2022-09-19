@@ -1,8 +1,15 @@
-import React from 'react'
 
+import React from 'react'
+import Draggable from 'react-draggable';
 export default function OutputBox(props){
 
     return(
-        <p id={`outputTxt${props.i}`} className='box'>{props.inputTxt[`inputBox${props.i}`]}</p>
+        <Draggable>
+        <p name={`outputTxt${props.id}`} 
+           id={`outputTxt${props.id}`} 
+           className='box'>
+               {props.inputTxt[`inputBox${props.id}`]}
+               </p>
+             </Draggable>  
     )
 }
