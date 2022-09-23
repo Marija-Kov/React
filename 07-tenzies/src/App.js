@@ -6,13 +6,20 @@ import RollBtn from './components/RollBtn'
 import Confetti from 'react-confetti'
 
 function App() {
-const [diceVals, setDiceVals] = React.useState(allNewDiceVals(10,6));
+const [diceVals, setDiceVals] = React.useState(allNewDiceVals());
 const [tenzies, setTenzies] = React.useState(false);
+
+const patterns = [[0,0,0,0,1,0,0,0,0], 
+                 [1,0,0,0,0,0,0,0,1], 
+                 [1,0,0,0,1,0,0,0,1], 
+                 [1,0,1,0,0,0,1,0,1], 
+                 [1,0,1,0,1,0,1,0,1], 
+                 [1,0,1,1,0,1,1,0,1]];
 
 React.useEffect(() => {
   let held = diceVals.filter(die => die.isHeld);
   let allSame = diceVals.every(die => die.value === diceVals[0].value);
-if(held.length === diceVals.length && allSame){
+if (held.length === diceVals.length && allSame){
   setTenzies(true)
 }
 }, [diceVals]);
@@ -25,9 +32,9 @@ if(held.length === diceVals.length && allSame){
    }
  }
 
- function allNewDiceVals(len){
+ function allNewDiceVals(){
  let arr = [];
- for (let i=0; i<len; ++i){
+ for (let i=0; i<10; ++i){
    arr.push(newDie())
  }
  return arr
@@ -62,6 +69,7 @@ const dice = diceVals.map(dieVal => {
 <Die key={dieVal.id} 
      value={dieVal.value} 
      isHeld={dieVal.isHeld}
+     pattern={patterns[dieVal.value-1]}
      holdDie={()=>holdDie(dieVal.id)}
      />
   )
