@@ -3,11 +3,14 @@ import React from 'react';
 import{nanoid} from "nanoid"
 import Die from './components/Die'
 import RollBtn from './components/RollBtn'
+import Counter from './components/Counter'
 import Confetti from 'react-confetti'
 
 function App() {
 const [diceVals, setDiceVals] = React.useState(allNewDiceVals());
 const [tenzies, setTenzies] = React.useState(false);
+const [seconds, setSeconds] = React.useState(0);
+const [minutes, setMinutes] = React.useState(0)
 
 const patterns = [[0,0,0,0,1,0,0,0,0], 
                  [1,0,0,0,0,0,0,0,1], 
@@ -22,7 +25,21 @@ React.useEffect(() => {
 if (held.length === diceVals.length && allSame){
   setTenzies(true)
 }
-}, [diceVals]);
+const count = window.setInterval(()=>{
+  setSeconds(prev => ++prev)  
+  },1000);
+  
+  if(tenzies) {
+    setSeconds(0);
+    setMinutes(0);
+  }
+  if(seconds > 59){
+  setMinutes(prev => ++prev);
+  }
+
+  return () => clearInterval(count) 
+}, [diceVals, seconds, tenzies]);
+
 
  function newDie(){
    return {
@@ -50,7 +67,7 @@ function rollDice(){
 
 function newGame(){
   setDiceVals(prev => prev.map(die => newDie()))
-  setTenzies(false)
+  setTenzies(false);
 }
 
 function holdDie(id){
@@ -88,6 +105,9 @@ const dice = diceVals.map(dieVal => {
      </div> 
      <RollBtn rollDice={rollDice} tenzies={tenzies} newGame={newGame}/>
     </main>
+     <Counter seconds={seconds} 
+              minutes={minutes}/> 
+
    </> 
   );
 }
