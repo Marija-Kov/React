@@ -12,6 +12,7 @@ const [tenzies, setTenzies] = React.useState(false);
 const [seconds, setSeconds] = React.useState(0);
 const [minutes, setMinutes] = React.useState(0)
 const [counting, setCounting] = React.useState(false);
+
 const patterns = [[0,0,0,0,1,0,0,0,0], 
                  [1,0,0,0,0,0,0,0,1], 
                  [1,0,0,0,1,0,0,0,1], 
@@ -32,7 +33,7 @@ if(counting){
   },1000);
   }
   if(tenzies) {
-    clearInterval(count);
+ clearInterval(count);
   }
   if(seconds > 59){
   setMinutes(prev => ++prev);
