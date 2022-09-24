@@ -1,5 +1,4 @@
 ### Building tenzies game from scratch
-
 #### Functionality overview
 
 - Every time the dice are rolled, each of them receives a value (random number 1-6 inclusive) and a function (holdDie(id)) that switches the value of isHeld (boolean, false by default)  from an array of objects that are passed from the App to every instance of Die (via map method).
@@ -32,7 +31,7 @@
 
 - Seconds are updated with setInterval method and reset at the value 59, when the minutes are updated also (incremented by 1).
 
-- Since this involves syncing multiple different states, it's put within the useEffect and the states are added in the list of dependencies. 
+- Since this involves syncing multiple different states, it's put within a useEffect and the states are added in the list of dependencies. 
 
 - useEffect returns a callback that clears the count interval after every render, otherwise seconds are incremented by 2 every second. * By clearing the interval after every render and resetting it, setSeconds is guaranteed to take the correct prev value of seconds.(At least that's the way I get it at this point and console logging "set"/"cleared" within setInterval and clearInterval demonstrates it.) 
 
