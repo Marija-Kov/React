@@ -1,6 +1,6 @@
 import './App.css';
 import React from 'react';
-import{nanoid} from "nanoid"
+import {nanoid} from "nanoid"
 import Die from './components/Die'
 import RollBtn from './components/RollBtn'
 import Counter from './components/Counter'
@@ -20,16 +20,19 @@ const patterns = [[0,0,0,0,1,0,0,0,0],
                  [1,0,1,0,1,0,1,0,1], 
                  [1,0,1,1,0,1,1,0,1]];
 
-React.useEffect(() => {
+React.useEffect(()=>{
   let held = diceVals.filter(die => die.isHeld);
   let allSame = diceVals.every(die => die.value === diceVals[0].value);
 if (held.length === diceVals.length && allSame){
   setTenzies(true)
 }
+},[diceVals]);
+
+React.useEffect(() => {
 let count;
 if(counting){
   count = window.setInterval(()=>{
-  setSeconds(prev => ++prev)  
+  setSeconds(prev => ++prev)
   },1000);
   }
   if(tenzies) {
@@ -40,10 +43,9 @@ if(counting){
   setSeconds(0);
    }
   
-  return () => clearInterval(count) 
+  return () => clearInterval(count);  
 
-}, [diceVals, seconds, tenzies, counting]);
-
+}, [seconds, tenzies, counting]);
 
  function newDie(){
    return {
@@ -68,6 +70,7 @@ function rollDice(){
    )
  }))
 }
+
 
 function newGame(){
   setDiceVals(prev => prev.map(die => newDie()))
