@@ -28,16 +28,16 @@ if (held.length === diceVals.length && allSame){
 const count = window.setInterval(()=>{
   setSeconds(prev => ++prev)  
   },1000);
-  
   if(tenzies) {
     setSeconds(0);
     setMinutes(0);
   }
   if(seconds > 59){
   setMinutes(prev => ++prev);
+  setSeconds(0);
   }
-
   return () => clearInterval(count) 
+
 }, [diceVals, seconds, tenzies]);
 
 
