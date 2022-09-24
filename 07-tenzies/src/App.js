@@ -11,6 +11,7 @@ const [diceVals, setDiceVals] = React.useState(allNewDiceVals());
 const [tenzies, setTenzies] = React.useState(false);
 const [seconds, setSeconds] = React.useState(0);
 const [minutes, setMinutes] = React.useState(0)
+const [counting, setCounting] = React.useState(false);
 const patterns = [[0,0,0,0,1,0,0,0,0], 
                  [1,0,0,0,0,0,0,0,1], 
                  [1,0,0,0,1,0,0,0,1], 
@@ -24,21 +25,23 @@ React.useEffect(() => {
 if (held.length === diceVals.length && allSame){
   setTenzies(true)
 }
-const count = window.setInterval(()=>{
+let count;
+if(counting){
+  count = window.setInterval(()=>{
   setSeconds(prev => ++prev)  
   },1000);
+  }
   if(tenzies) {
-    setSeconds(0);
-    setMinutes(0);
     clearInterval(count);
   }
   if(seconds > 59){
   setMinutes(prev => ++prev);
   setSeconds(0);
-  }
+   }
+  
   return () => clearInterval(count) 
 
-}, [diceVals, seconds, tenzies]);
+}, [diceVals, seconds, tenzies, counting]);
 
 
  function newDie(){
@@ -68,6 +71,9 @@ function rollDice(){
 function newGame(){
   setDiceVals(prev => prev.map(die => newDie()))
   setTenzies(false);
+  setSeconds(0);
+  setMinutes(0);
+  setCounting(false);
 }
 
 function holdDie(id){
@@ -81,6 +87,10 @@ function holdDie(id){
   
 }
 
+function triggerCount(){
+ setCounting(true)
+}
+
 const dice = diceVals.map(dieVal => {
   return(
 <Die key={dieVal.id} 
@@ -88,6 +98,7 @@ const dice = diceVals.map(dieVal => {
      isHeld={dieVal.isHeld}
      pattern={patterns[dieVal.value-1]}
      holdDie={()=>holdDie(dieVal.id)}
+     triggerCount={()=>triggerCount()}
      />
   )
 });
