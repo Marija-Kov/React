@@ -13,8 +13,12 @@ export default function Die(props){
          return areas  
     }
     const diePattern = applyPattern();
+    function handleClick(){
+        props.holdDie()
+        props.triggerCount() 
+    }
     return(
-        <div className={`die ${props.isHeld ? 'held' : ""}`} onClick={props.holdDie}>
+        <div className={`die ${props.isHeld ? 'held' : ""}`} onClick={handleClick}>
          {diePattern}
         </div>
     )
