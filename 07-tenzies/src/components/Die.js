@@ -1,3 +1,4 @@
+import { nanoid } from 'nanoid';
 import Dot from './Dot'
 
 export default function Die(props){
@@ -6,6 +7,7 @@ export default function Die(props){
             for(let i=0; i<9; ++i){
              areas.push(
               <Dot
+              key={nanoid()}
               full={props.pattern[i]} 
                   />   
              )
@@ -13,6 +15,7 @@ export default function Die(props){
          return areas  
     }
     const diePattern = applyPattern();
+
     function handleClick(){
         props.holdDie()
         props.triggerCount() 
