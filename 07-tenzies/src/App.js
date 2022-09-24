@@ -11,7 +11,6 @@ const [diceVals, setDiceVals] = React.useState(allNewDiceVals());
 const [tenzies, setTenzies] = React.useState(false);
 const [seconds, setSeconds] = React.useState(0);
 const [minutes, setMinutes] = React.useState(0)
-
 const patterns = [[0,0,0,0,1,0,0,0,0], 
                  [1,0,0,0,0,0,0,0,1], 
                  [1,0,0,0,1,0,0,0,1], 
@@ -31,6 +30,7 @@ const count = window.setInterval(()=>{
   if(tenzies) {
     setSeconds(0);
     setMinutes(0);
+    clearInterval(count);
   }
   if(seconds > 59){
   setMinutes(prev => ++prev);
