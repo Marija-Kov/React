@@ -7,7 +7,9 @@ export default function InputBox(props){
           type="text" 
           placeholder={`input box ${props.id}`} 
           name={`inputBox${props.id}`} 
-          onChange={props.handleChange}/>
+          onChange={props.handleChange}
+          value={props.inputTxt[`inputBox${props.id}`]} 
+          />
     )
     
 }

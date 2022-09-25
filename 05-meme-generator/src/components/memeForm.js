@@ -1,6 +1,5 @@
 import React from 'react'
 import {nanoid} from 'nanoid'
-
 import InputBox from './InputBox';
 import OutputBox from './OutputBox'
 
@@ -27,10 +26,10 @@ export default function MemeForm(){
                [name]:value
               }
        })
-       console.log(inputTxt[name])
+       console.log(inputTxt)
        }
 
-    // inoutTxt state as an array of objects with one key-value pair each:
+    // inputTxt state as an array of objects with one key-value pair each:
     // const [inputTxt, setInputTxt] = React.useState([]); 
 
     //   function handleChange(event){
@@ -62,9 +61,11 @@ export default function MemeForm(){
    function inputBoxes() {
        const boxes = [];
        for(let i=1; i < meme.box_count+1; ++i){
-              boxes.push(<InputBox 
+              boxes.push(<InputBox
+                          key={nanoid()} 
                           id={i}
                           handleChange={handleChange}
+                          inputTxt={inputTxt}
                           />
                           )
                          } 
@@ -76,6 +77,7 @@ export default function MemeForm(){
        for(let i=1; i < meme.box_count+1; ++i){
               boxes.push( 
                   <OutputBox
+                  key={nanoid()} 
                   id={i}
                   inputTxt={inputTxt}
                   />
