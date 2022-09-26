@@ -47,11 +47,11 @@ by giving a prop to the instance of a child (ex. parentState) with the value of 
 
 But since the parent component already can manage its own state, passing it directly to the children creates another "source of truth", which is unnecessary and not ideal.
 
-- A parent can pass a function** that lives within the parent to its child as a prop. Then, the child can run that function through the event listener attached to the child.
+- A parent can pass a function** - that lives within the parent and contains the setState method - to its child as a prop. Then, the child can run that function through the event listener attached to the child.
 
 - ** - If the function takes in an argument that is a part of the parent's state, the child has to be granted access to the argument. This is also done by passing the argument to the child as a prop.
 
-- ** - The function asking for an argument within the child component that it has been passed to needs to be wrapped in a callback before being passed to the event listener.
+- ** - The function asking for an argument within the child component that it has been passed to needs to be wrapped in a callback before being passed to the child component element's event listener.
 
 
 ### React forms
@@ -61,8 +61,6 @@ But since the parent component already can manage its own state, passing it dire
 A good practice is to have React control the input, which, in html, controls its own state. This is accomplished by defining the input value attribute with the state as the value.
 
  value={state.propName}
-
-
  ### useEffect()
 
  useEffect() lets a component interact with an outside system while keeping its local state in sync with it.
