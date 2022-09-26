@@ -4,6 +4,8 @@ import InputBox from './InputBox';
 import OutputBox from './OutputBox'
 
 export default function MemeForm(){
+    
+console.log('MemeForm rendered')
 
     React.useEffect(()=>{
         fetch("https://api.imgflip.com/get_memes")
@@ -18,6 +20,7 @@ export default function MemeForm(){
     })
     // inputTxt state as an object:
     const [inputTxt, setInputTxt] = React.useState({}); 
+
     function handleChange(event){
        const {name, value} = event.target;
        setInputTxt(prev=>{
@@ -26,9 +29,9 @@ export default function MemeForm(){
                [name]:value
               }
        })
-       console.log(inputTxt)
+       
        }
-
+   console.log(inputTxt)
     // inputTxt state as an array of objects with one key-value pair each:
     // const [inputTxt, setInputTxt] = React.useState([]); 
 
@@ -62,7 +65,7 @@ export default function MemeForm(){
        const boxes = [];
        for(let i=1; i < meme.box_count+1; ++i){
               boxes.push(<InputBox
-                          key={nanoid()} 
+                          key={`inputBox${i}`} 
                           id={i}
                           handleChange={handleChange}
                           inputTxt={inputTxt}
