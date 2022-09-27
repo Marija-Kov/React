@@ -122,3 +122,7 @@ button {
 .box:active{
   cursor: grabbing;
 }
+
+.hidden {
+  display: none;
+}
