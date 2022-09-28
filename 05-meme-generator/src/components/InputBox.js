@@ -3,7 +3,7 @@ import React from "react"
 export default function InputBox(props){
     return(
         <input 
-          className={props.id > props.boxCount ? "hidden" : ""}
+          className={props.className}
           type="text" 
           placeholder={`input box ${props.id}`} 
           id={`inputBox${props.id}`}
