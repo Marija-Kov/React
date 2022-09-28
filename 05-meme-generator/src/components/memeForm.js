@@ -11,8 +11,8 @@ export default function MemeForm(){
 
     const [allMemes, setAllMemes] = React.useState([]);
     const [meme, setMeme] = React.useState({
-        box_count: 1,
-        memeImage: "https://i.imgflip.com/24y43o.jpg"
+        box_count: 2,
+        memeImage: "https://i.imgflip.com/8k0sa.jpg"
     })
     const [extra, setExtra] = React.useState(1); // first extra box id is always higher by 1 than the default number of boxes 
     const [inputTxt, setInputTxt] = React.useState({});
