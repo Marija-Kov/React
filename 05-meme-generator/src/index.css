@@ -72,8 +72,9 @@ input {
   padding-left: 10px;;
 }
 button {
-  width: 300px;
+  width: fit-content;
   height: 40px;
+  padding: 0 40px;
   background: linear-gradient(90deg, #672280 1.18%, #A626D3 100%);
   border: none;
   border-radius: 0.5em;
@@ -82,6 +83,14 @@ button {
   letter-spacing: 0.03em;
   cursor: pointer;
   margin-bottom: 40px;
+}
+
+.extra {
+  padding: 0 20px;
+  height: 30px;
+  color: #672280;
+  background: transparent;
+  border: solid 2px  #672280;
 }
 
 .output {
@@ -110,13 +119,14 @@ button {
 
 .box {
   position: relative;
-  background: black;
   padding: 0 5px;
   display: inline-block;
   margin: 0 20px;
   font-family: impact;
-  font-size: 32px;
+  font-size: 40px;
   color: white;
+  letter-spacing: 1px;
+  text-shadow: -3px -3px 0px black, 3px 3px 0px black, 3px -3px 0px black, -3px 3px 0 black;
   cursor: grab;
 }
 .box:active{

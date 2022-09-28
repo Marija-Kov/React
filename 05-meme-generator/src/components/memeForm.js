@@ -14,7 +14,7 @@ export default function MemeForm(){
         box_count: 2,
         memeImage: "https://i.imgflip.com/8k0sa.jpg"
     })
-    const [extra, setExtra] = React.useState(1); // first extra box id is always higher by 1 than the default number of boxes 
+    const [extra, setExtra] = React.useState(1); // because first extra box id is always higher by 1 than the default number of boxes 
     const [inputTxt, setInputTxt] = React.useState({});
     function handleChange(event){
        const {name, value} = event.target;
@@ -85,7 +85,7 @@ export default function MemeForm(){
        for(let i=1; i < meme.box_count+5; ++i){
               boxes.push( 
                   <OutputBox
-                  key={`outputTxt${i}`} 
+                  key={`outpuTxt${i}`} 
                   id={i}
                   inputTxt={inputTxt}
                   boxCount={meme.box_count}
@@ -99,8 +99,8 @@ export default function MemeForm(){
         <form className="form" onSubmit={handleSubmit}>
             {inputBoxes()}
         </form>
-        <button onClick={extra < 5 ? addInputBox : function(){}}>{extra < 5 ? "+ Extra input box" : "No more extra boxes! Plenty to work with anyway :}"}</button>
-        <button onClick={getMeme}>Get a new meme image</button>
+        <button className="extra" onClick={extra < 5 ? addInputBox : function(){}}>{extra < 5 ? "+ Extra input box" : "No more extra boxes! Plenty to work with anyway :}"}</button>
+        <button onClick={getMeme}>Get a new meme template</button>
         <div className="output">
             <div className="meme-text">
             {outputBoxes()}
