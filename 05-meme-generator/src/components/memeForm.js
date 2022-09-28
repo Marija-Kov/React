@@ -15,7 +15,7 @@ export default function MemeForm(){
         memeImage: "https://i.imgflip.com/8k0sa.jpg"
     })
     const [extra, setExtra] = React.useState(1); // because first extra box id is always higher by 1 than the default number of boxes 
-    const [inputTxt, setInputTxt] = React.useState({});
+    const [inputTxt, setInputTxt] = React.useState({inputBox1: "", inputBox2: "",inputBox3: "", inputBox4: "",inputBox5: "", inputBox6: ""});
     function handleChange(event){
        const {name, value} = event.target;
        setInputTxt(prev=>{
