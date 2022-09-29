@@ -3,29 +3,28 @@ import InputBox from './InputBox';
 import OutputBox from './OutputBox'
 
 export default function MemeForm(){
-    React.useEffect(()=>{
-        fetch("https://api.imgflip.com/get_memes")
-        .then(res => res.json())
-        .then(data => setAllMemes(data.data.memes))
-    },[])
-
     const [allMemes, setAllMemes] = React.useState([]);
     const [meme, setMeme] = React.useState({
         box_count: 2,
         memeImage: "https://i.imgflip.com/8k0sa.jpg"
     })
     const [extra, setExtra] = React.useState(1); // because first extra box id is always higher by 1 than the default number of boxes 
-    const [inputTxt, setInputTxt] = React.useState({inputBox1: "", inputBox2: "",inputBox3: "", inputBox4: "",inputBox5: "", inputBox6: ""});
-    function handleChange(event){
-       const {name, value} = event.target;
-       setInputTxt(prev=>{
-           return {
-               ...prev,
-               [name]:value
-              }
-       })
-       
-       }
+    const [inputTxt, setInputTxt] = React.useState({inputBox1:"", inputBox2:"", inputBox3:"", inputBox4:"", inputBox5:"", inputBox6:""});
+
+    React.useEffect(()=>{
+        fetch("https://api.imgflip.com/get_memes")
+        .then(res => res.json())
+        .then(data => setAllMemes(data.data.memes))
+    },[]);
+    
+    React.useEffect(()=> {
+        setInputTxt(inputTxt => {
+         for(let i=1; i<meme.box_count+5; ++i){
+           inputTxt[`inputBox${i}`] = "";
+         }  
+         return inputTxt 
+        })       // once the user gets a new meme template, the previously typed text will remain...
+    }, [meme]);  // ...but will be gone once the user starts typing again.
 
     React.useEffect(()=> {
         let allInput = document.querySelectorAll('input');
@@ -33,7 +32,6 @@ export default function MemeForm(){
            let eId = e.getAttribute('id');
            let idNum = eId.slice(8, eId.length+1); // 8 is the index of the 'x' character of the input id, after which comes a number we're looking for
            if (idNum > meme.box_count){ 
-              //console.log(`hid extra input, num id ${idNum}`) 
               // Making sure that only default input boxes are shown for the current meme and the extras are hidden...
                e.setAttribute('class', "hidden");
            }
@@ -53,9 +51,19 @@ export default function MemeForm(){
         setExtra(1);
     }
 
-   const handleSubmit = (event) => {
+    function handleChange(event){
+       const {name, value} = event.target;
+       setInputTxt(prev=>{
+           return {
+               ...prev,
+               [name]:value
+              }
+       })
+       };
+
+    const handleSubmit = (event) => {
        event.preventDefault()
-   }
+    };
 
    function inputBoxes() {
        const boxes = [];
@@ -78,7 +86,6 @@ export default function MemeForm(){
        newInputBox.classList.remove('hidden');
        setExtra(prev => ++prev);
    }
-   //console.log(`last box id: ${extra+1}`)
   
    function outputBoxes(){
        const boxes = [];
