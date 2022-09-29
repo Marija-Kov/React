@@ -12,4 +12,5 @@
 
 - Using react.draggable API to enable the user to reposition the output paragraphs.
 
-- Allowing the user to add up to n more output paragraphs to the meme (by rendering n extra hidden paragraphs that are revealed one by one on button click).  
+- Allowing the user to add up to n more output paragraphs to the meme (by rendering n extra hidden paragraphs that are revealed one by one on button click).
+
